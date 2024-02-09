@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3307/cardb
+
+    username: root
+    password: maria6455
+
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    generate-ddl: true
+
+    hibernate:
+      ddl-auto: create-drop
+  #    url: jdbc:h2:mem:testdb
+
+#  jpa:
+#    show-sql: true
+
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
