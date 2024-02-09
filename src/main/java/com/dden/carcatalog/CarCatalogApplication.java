@@ -32,19 +32,19 @@ public class CarCatalogApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Owner owner1 = new Owner("Den", "Robbin");
-		Owner owner2 = new Owner("Ihor", "Franklin");
-		ownerRepository.saveAll(Arrays.asList(owner1,owner2));
-
-		repository.save(new Car("Ford", "Mustang", "Red",
-				"ADF-1121", 2023, 59000, owner1));
-		repository.save(new Car("Nissan", "Leaf", "White",
-				"SSJ-3002", 2020, 29000, owner2));
-		repository.save(new Car("Toyota", "Prius", "Silver",
-				"KKO-0212", 2022, 39000, owner2));
-
-		for (Car car : repository.findAll()){
-			logger.info("brand: {}, model: {}", car.getBrand(), car.getModel());
-		}
+//		Owner owner1 = new Owner("Den", "Robbin");
+//		Owner owner2 = new Owner("Ihor", "Franklin");
+//		ownerRepository.saveAll(Arrays.asList(owner1,owner2));
+//
+//		repository.save(new Car("Ford", "Mustang", "Red",
+//				"ADF-1121", 2023, 59000, owner1));
+//		repository.save(new Car("Nissan", "Leaf", "White",
+//				"SSJ-3002", 2020, 29000, owner2));
+//		repository.save(new Car("Toyota", "Prius", "Silver",
+//				"KKO-0212", 2022, 39000, owner2));
+//
+//		for (Car car : repository.findAll()){
+//			logger.info("brand: {}, model: {}", car.getBrand(), car.getModel());
+//		}
 	}
 }
