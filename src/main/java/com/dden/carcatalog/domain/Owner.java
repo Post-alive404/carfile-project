@@ -1,5 +1,6 @@
 package com.dden.carcatalog.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class Owner {
     private Long ownerId;
     private String firstName, secondName;
 
+    @JsonIgnoreProperties
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Car> cars;
 
