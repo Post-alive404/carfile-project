@@ -13,11 +13,11 @@ import java.util.Set;
  */
 
 @Entity
+//@SequenceGenerator(name = "car_seq", sequenceName = "car_seq", allocationSize = 1)
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @SequenceGenerator(name = "car_seq", allocationSize = 1)
     private Long id;
 
     private String brand, model, color, registrationNumber;
