@@ -1,4 +1,4 @@
-package com.dden.carcatalog.controller;
+package com.dden.carcatalog.web;
 
 import com.dden.carcatalog.domain.Car;
 import com.dden.carcatalog.repository.CarRepository;

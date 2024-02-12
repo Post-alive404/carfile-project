@@ -1,7 +1,7 @@
 package com.dden.carcatalog;
 
-import com.dden.carcatalog.domain.Car;
-import com.dden.carcatalog.domain.Owner;
+import com.dden.carcatalog.domain.AppUser;
+import com.dden.carcatalog.repository.AppUserRepository;
 import com.dden.carcatalog.repository.CarRepository;
 import com.dden.carcatalog.repository.OwnerRepository;
 import org.slf4j.Logger;
@@ -10,8 +10,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Arrays;
-
 @SpringBootApplication
 public class CarCatalogApplication implements CommandLineRunner {
 
@@ -19,10 +17,12 @@ public class CarCatalogApplication implements CommandLineRunner {
 
 	private final CarRepository repository;
 	private final OwnerRepository ownerRepository;
+	private final AppUserRepository userRepository;
 
-	public CarCatalogApplication(CarRepository repository, OwnerRepository ownerRepository) {
+	public CarCatalogApplication(CarRepository repository, OwnerRepository ownerRepository, AppUserRepository userRepository) {
 		this.repository = repository;
 		this.ownerRepository = ownerRepository;
+		this.userRepository = userRepository;
 	}
 
 	public static void main(String[] args) {
@@ -31,6 +31,13 @@ public class CarCatalogApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
+//		userRepository.save(new AppUser("user","$2a$10$NVM0n8ElaRgg7zWO1CxUdei7vWoPg91Lz2aYavh9" +
+//				".f9q0e4bRadue", "USER" ));
+//
+//		userRepository.save(new AppUser("admin",
+//				"$2a$10$8cjz47bjbR4Mn8GMg9IZx.vyjhLXR/SKKMSZ9." +
+//						"mP9vpMu0ssKi8GW", "ADMIN"));
 
 //		Owner owner1 = new Owner("Den", "Robbin");
 //		Owner owner2 = new Owner("Ihor", "Franklin");
