@@ -1,5 +1,6 @@
 package com.dden.carcatalog.config;
 
+import com.dden.carcatalog.exception.AuthEntryPoint;
 import com.dden.carcatalog.filter.AuthenticationFilter;
 import com.dden.carcatalog.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
@@ -38,10 +39,12 @@ public class SecurityConfig {
 //    }
     private final UserDetailsServiceImpl userDetailsService;
     private final AuthenticationFilter authenticationFilter;
+    private final AuthEntryPoint authEntryPoint;
 
-    public SecurityConfig(UserDetailsServiceImpl userDetailsService, AuthenticationFilter authenticationFilter) {
+    public SecurityConfig(UserDetailsServiceImpl userDetailsService, AuthenticationFilter authenticationFilter, AuthEntryPoint authEntryPoint) {
         this.userDetailsService = userDetailsService;
         this.authenticationFilter = authenticationFilter;
+        this.authEntryPoint = authEntryPoint;
     }
 
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
@@ -70,7 +73,9 @@ public class SecurityConfig {
                         .permitAll()
                         .anyRequest()
                         .authenticated())
-                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling((exceptionHandling) -> exceptionHandling
+                        .authenticationEntryPoint(authEntryPoint));
 
         return http.build();
     }
