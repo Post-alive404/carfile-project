@@ -12,6 +12,8 @@ spring:
     rest:
       base-path: /api
 
+  config:
+    import: optional:secrets.yml
 
   #    url: jdbc:h2:mem:testdb
 

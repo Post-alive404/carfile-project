@@ -39,3 +39,4 @@ out/
 
 secrets.yml
 /src/main/resources/secrets.yml
+node_modules

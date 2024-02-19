@@ -9,8 +9,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 @SpringBootApplication
+@EnableMethodSecurity
 public class CarCatalogApplication implements CommandLineRunner {
 
 	private static final Logger logger = LoggerFactory.getLogger(CarCatalogApplication.class);
