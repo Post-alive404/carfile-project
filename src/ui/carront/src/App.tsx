@@ -1,6 +1,6 @@
 import {AppBar, Container, CssBaseline, Toolbar, Typography} from "@mui/material";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import {Carlist} from "./components/Carlist.tsx";
+import {Login} from "./components/Login.tsx";
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
             </Toolbar>
         </AppBar>
         <QueryClientProvider client={queryClient}>
-            <Carlist />
+            <Login />
         </QueryClientProvider>
     </Container>
   )

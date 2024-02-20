@@ -71,24 +71,24 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        http.csrf((csrf) -> csrf.disable())
-                .cors(Customizer.withDefaults())
-                .authorizeHttpRequests((auth) -> auth.anyRequest().permitAll());
-//        http
-//                .csrf(AbstractHttpConfigurer::disable)
+//        http.csrf((csrf) -> csrf.disable())
 //                .cors(Customizer.withDefaults())
-//                .sessionManagement((sessionManager) -> sessionManager
-//                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .authorizeHttpRequests((auth) -> auth
-//                        .requestMatchers(HttpMethod.POST, "/login")
-//                        .permitAll()
-//                        .requestMatchers("/admin/**").hasRole("ADMIN")
-//                        .requestMatchers("/user/**").hasRole("USER")
-//                        .anyRequest()
-//                        .authenticated())
-//                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
-//                .exceptionHandling((exceptionHandling) -> exceptionHandling
-//                        .authenticationEntryPoint(authEntryPoint));
+//                .authorizeHttpRequests((auth) -> auth.anyRequest().permitAll());
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+                .cors(Customizer.withDefaults())
+                .sessionManagement((sessionManager) -> sessionManager
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests((auth) -> auth
+                        .requestMatchers(HttpMethod.POST, "/login")
+                        .permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/user/**").hasRole("USER")
+                        .anyRequest()
+                        .authenticated())
+                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling((exceptionHandling) -> exceptionHandling
+                        .authenticationEntryPoint(authEntryPoint));
 
         return http.build();
     }
